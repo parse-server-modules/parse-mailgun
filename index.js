@@ -3,7 +3,7 @@ var Buffer = require('buffer').Buffer;
 var Mailgun = {
 	sendEmail: function(params, options){
 		var url = 'https://api.mailgun.net/v2/'+Mailgun.domainName+'/messages'
-		console.log(url);
+		// console.log(url);
 		var p = new Parse.Promise();
 		var resolved;
 		var successCallback = function(httpResponse){
@@ -38,6 +38,8 @@ var Mailgun = {
 			success: successCallback,
 			error: errorCallback
 		}).then(successCallback, errorCallback);
+		
+		return p;
 	}
 };
 
